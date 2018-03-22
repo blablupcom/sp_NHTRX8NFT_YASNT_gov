@@ -103,6 +103,7 @@ for block in blocks:
         title = block.text.strip().split()
         csvMth = title[-2][:3]
         csvYr = title[-1][-4:]
+        print csvMth, csvYr
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, link])
 
