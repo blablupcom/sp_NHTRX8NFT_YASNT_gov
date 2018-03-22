@@ -88,7 +88,7 @@ entity_id = "NHTRX8NFT_YASNT_gov"
 url = "http://www.yas.nhs.uk/Publications/Spending.html"
 errors = 0
 data = []
-proxy = {'http':'185.145.202.171:3128'}
+proxy = {'http':'http://185.145.202.171:3128'}
 
 #### READ HTML 1.0
 
