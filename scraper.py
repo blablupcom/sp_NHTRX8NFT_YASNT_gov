@@ -10,6 +10,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 #### FUNCTIONS 1.0
+import requests
 
 def validateFilename(filename):
     filenameregex = '^[a-zA-Z0-9]+_[a-zA-Z0-9]+_[a-zA-Z0-9]+_[0-9][0-9][0-9][0-9]_[0-9QY][0-9]$'
@@ -87,15 +88,16 @@ entity_id = "NHTRX8NFT_YASNT_gov"
 url = "http://www.yas.nhs.uk/Publications/Spending.html"
 errors = 0
 data = []
+proxy = {'http':'185.145.202.171:3128'}
 
 #### READ HTML 1.0
 
-html = urllib2.urlopen(url)
-soup = BeautifulSoup(html, 'lxml')
+html = requests.get(url, proxies=proxy)
+soup = BeautifulSoup(html.text, 'lxml')
 
 
 #### SCRAPE DATA
-
+print soup
 blocks = soup.find_all('a')
 for block in blocks:
      if '.csv' in block['href'] or '.xls' in block['href'] or '.xlsx' in block['href'] or '.pdf' in block['href']:
